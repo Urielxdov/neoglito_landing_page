@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Tokens del design system (redesign/modal.css) + paleta de la landing */
+@theme {
+  --font-sans: var(--font-plex-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --color-paper: #f6f7f4;
+  --color-surface: #ffffff;
+  --color-surface-2: #f8fafc;
+  --color-surface-3: #f1f5f9;
+
+  --color-line: #e6eaf0;
+  --color-line-2: #d6dce5;
+  --color-line-strong: #c4ccd8;
+
+  --color-fg: #16202e;
+  --color-fg-2: #51607a;
+  --color-fg-3: #8c98ac;
+
+  --color-accent: #2257c4;
+  --color-accent-hover: #2e66d8;
+  --color-accent-press: #1c489f;
+  --color-accent-weak: #eef3fc;
+  --color-accent-soft: #dde8fb;
+
+  --color-navy: #16202e;
+  --color-navy-line: #2c3748;
+  --color-navy-border: #3a4658;
+  --color-navy-muted: #8c98ac;
+  --color-navy-text: #dfe5ee;
+  --color-sky: #7fa6ee;
+
+  --radius-btn: 8px;
+  --radius-card: 16px;
+
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.25, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
